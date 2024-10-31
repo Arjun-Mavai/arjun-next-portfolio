@@ -163,7 +163,7 @@ function Navbar() {
         scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       )}
     >
-      <nav className="container mx-auto px-4">
+      <nav className="bg-white dark:bg-gray-800 text-black dark:text-white container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-xl font-bold">
             Arjun Singh
@@ -190,6 +190,7 @@ function Navbar() {
               <Link href="https://linkedin.com" target="_blank">
                 <Linkedin className="w-5 h-5" />
               </Link>
+              <ThemeToggle />
             </div>
           </div>
 
@@ -259,7 +260,7 @@ function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 overflow-hidden bg-background/50 backdrop-blur-sm">
+    <section id="skills" className="bg-white dark:bg-gray-800 text-black dark:text-white py-20 overflow-hidden bg-background/50 backdrop-blur-sm">
       <div className="container px-4 mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
@@ -351,7 +352,7 @@ function Projects() {
   })
 
   return (
-    <section id="projects" className="py-20 bg-background relative overflow-hidden">
+    <section id="projects" className="bg-white dark:bg-gray-800 text-black dark:text-white py-20 bg-background relative overflow-hidden">
       <div className="container px-4 mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
@@ -417,6 +418,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import confetti from 'canvas-confetti'
 import { Download, Send, ArrowRight, Mail, User, MessageSquare } from "lucide-react"
  import { useRouter } from "next/navigation"
+import { ThemeToggle } from "./theme-toggle"
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -426,7 +428,7 @@ const formSchema = z.object({
 
 function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background via-background to-background/50 relative overflow-hidden">
+    <section className="bg-white dark:bg-gray-800 text-black dark:text-white min-h-screen flex items-center justify-center bg-gradient-to-b from-background via-background to-background/50 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10" />
@@ -564,7 +566,7 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/50">
+    <section id="contact" className="bg-white dark:bg-gray-800 text-black dark:text-white py-20 bg-muted/50">
       <div className="container px-4 mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
