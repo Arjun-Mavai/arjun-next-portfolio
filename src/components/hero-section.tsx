@@ -181,13 +181,13 @@ function Navbar() {
               </Link>
             ))}
             <div className="flex items-center space-x-4">
-              <Link href="https://github.com" target="_blank">
+              <Link href="https://github.com/Arjun-Mavai" target="_blank">
                 <Github className="w-5 h-5" />
               </Link>
               <Link href="https://twitter.com" target="_blank">
                 <Twitter className="w-5 h-5" />
               </Link>
-              <Link href="https://linkedin.com" target="_blank">
+              <Link href="https://www.linkedin.com/in/arjun-singh-gurjar-333458146/" target="_blank">
                 <Linkedin className="w-5 h-5" />
               </Link>
               <ThemeToggle />
@@ -427,6 +427,11 @@ const formSchema = z.object({
 })
 
 function Hero() {
+
+    const router = useRouter()
+    const handleDownload = () => {
+        window.open('/Arjun_resume.pdf', '_blank')
+      }
   return (
     <section className="bg-white dark:bg-gray-800 text-black dark:text-white min-h-screen flex items-center justify-center bg-gradient-to-b from-background via-background to-background/50 relative overflow-hidden">
       {/* Animated background elements */}
@@ -491,24 +496,38 @@ function Hero() {
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <Button asChild size="lg" className="group">
-              <Link href="/resume.pdf" target="_blank">
-                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                Download Resume
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="group">
-              <Link href="#contact">
-                Hire Me
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </motion.div>
+  className="flex flex-col  sm:flex-row gap-4 justify-center items-stretch w-full max-w-md mx-auto"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+>
+  <Button 
+    asChild 
+    size="lg" 
+    className="group p-3 flex-1 min-w-[160px]" // flex-1 for equal growth
+  >
+    <Link 
+      href="/Arjun_resume.pdf"  // Direct path from public folder
+      target="_blank"           // New tab
+      rel="noopener noreferrer" // Security best practice
+      download="Arjun_Resume.pdf" // Download filename
+      onClick={handleDownload}
+    >
+      <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+      Download Resume
+    </Link>
+  </Button>
+  <Button 
+    asChild 
+    size="lg" 
+    className="group p-3 flex-1 min-w-[160px]" // flex-1 for equal growth
+  >
+    <Link href="#contact" className="w-full justify-center">
+      Hire Me
+      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  </Button>
+</motion.div>
         </motion.div>
       </div>
     </section>
